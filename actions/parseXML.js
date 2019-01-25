@@ -25,7 +25,7 @@ const parseXML = (link) =>
                         throw new Error(err);
                     }
 
-                    console.log(res.html.body[0].div[0]);
+                    console.log(res.html.body[0].div[0].div[1]);
 
                     const article_content = res.html.body[0].div[0].div[1].div[1].div[0].div[1].div[0].div[1].div[0].div[0];
 
