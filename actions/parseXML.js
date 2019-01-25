@@ -25,9 +25,11 @@ const parseXML = (link) =>
                         throw new Error(err);
                     }
 
-                    console.log(res.html.body[0].div[0].div[1].div[1].div[0].div[2]);
+                    console.log(res.html.body[0].div[0].div[1].div[1].div[0].div[2]
+                        .div[0]);
 
-                    const article_content = res.html.body[0].div[0].div[1].div[1].div[0].div[1].div[0].div[1].div[0].div[0];
+                    const article_content = res.html.body[0].div[0].div[1].div[1].div[0].div[1]
+                        .div[0].div[1].div[0].div[0];
 
                     let header = article_content.h1[0]['_'];
                     let picUrl;
