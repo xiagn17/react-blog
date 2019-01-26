@@ -21,25 +21,20 @@ const {
 const app = express();
 
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client')));
 app.use(VK_WEBHOOK_PATH, updates.getWebhookCallback());
 
 
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'index.html'));
 });
 
 app.get('/posts', (req, res) => {
 
     const page = Number(req.query.page);
-    let count = req.query.count;
-
-    if (count === 'null') {
-        count = true;
-    } else {
-        count = false;
-    }
+    const count = (req.query.count === 'null') ? true : false;
+    const { clientDB } = app.locals;
 
     const { clientDB } = app.locals;
 
