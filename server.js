@@ -35,7 +35,7 @@ app.get('/posts', (req, res) => {
     const page = Number(req.query.page);
     const count = (req.query.count === 'null') ? true : false;
     const { clientDB } = app.locals;
-    
+
     if (clientDB) {
         pullData(clientDB, 'posts', {
             page,
